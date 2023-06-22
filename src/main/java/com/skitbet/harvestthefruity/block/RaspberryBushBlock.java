@@ -38,8 +38,6 @@ public class RaspberryBushBlock extends BushBlock implements IGrowable {
         this.registerDefaultState(this.getStateDefinition().any().setValue(AGE, 0));
     }
 
-
-
     @Override
     public ItemStack getCloneItemStack(IBlockReader p_185473_1_, BlockPos p_185473_2_, BlockState p_185473_3_) {
         return new ItemStack(ItemRegistry.RASPBERRY.get());
@@ -77,13 +75,13 @@ public class RaspberryBushBlock extends BushBlock implements IGrowable {
 
     @Override
     public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult rayTraceResult) {
-        int i = state.getValue(AGE);
-        boolean flag = i == 3;
-        if (!flag && player.getItemInHand(hand).getItem() == Items.BONE_MEAL) {
+        int age = state.getValue(AGE);
+        boolean isGrown = age == 3;
+        if (!isGrown && player.getItemInHand(hand).getItem() == Items.BONE_MEAL) {
             return ActionResultType.PASS;
-        }else if (i > 1) {
-            int j = i + world.random.nextInt(3);
-            popResource(world, pos, new ItemStack(ItemRegistry.RASPBERRY.get(), j + (flag ? 1 : 0)));
+        }else if (age > 1) {
+            int j = age + world.random.nextInt(3);
+            popResource(world, pos, new ItemStack(ItemRegistry.RASPBERRY.get(), j + (isGrown ? 1 : 0)));
             world.playSound(null, pos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
             world.setBlock(pos, state.setValue(AGE, 0), 2);
             return ActionResultType.sidedSuccess(world.isClientSide);
