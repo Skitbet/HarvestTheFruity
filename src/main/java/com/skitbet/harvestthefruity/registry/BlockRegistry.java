@@ -7,6 +7,8 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -22,7 +24,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> RASPBERRY_BUSH = BLOCKS.register("raspberry_bush",
             () -> new RaspberryBushBlock(AbstractBlock.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> MICROWAVE = BLOCKS.register("microwave",
-            () -> new MicrowaveBlock(AbstractBlock.Properties.of(Material.STONE).randomTicks().sound(SoundType.STONE)));
+            () -> new MicrowaveBlock(AbstractBlock.Properties.of(
+                    new Material.Builder(MaterialColor.COLOR_GRAY).nonSolid().build())
+                    .randomTicks().sound(SoundType.STONE)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

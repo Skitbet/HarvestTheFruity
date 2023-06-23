@@ -24,9 +24,11 @@ public class HarvestTheFruity
         ItemRegistry.register(eventBus);
         BlockRegistry.register(eventBus);
 
+
     }
 
     public void commonSetup(final FMLClientSetupEvent event) {
         RenderTypeLookup.setRenderLayer(BlockRegistry.RASPBERRY_BUSH.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(BlockRegistry.MICROWAVE.get(), RenderType.cutout());
     }
 }

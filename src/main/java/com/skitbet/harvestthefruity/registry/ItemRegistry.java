@@ -1,6 +1,8 @@
 package com.skitbet.harvestthefruity.registry;
 
 import com.skitbet.harvestthefruity.HarvestTheFruity;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
@@ -9,6 +11,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Supplier;
 
 public class ItemRegistry {
 
@@ -20,11 +24,12 @@ public class ItemRegistry {
                                     .nutrition(2)
                                     .saturationMod(0.6F)
                                     .build())
-                            .tab(ItemGroup.TAB_FOOD)));
+                            .tab(ModItemGroup.HARVEST_THE_FRUIT_GROUP)));
 
-    public static final RegistryObject<Item> MICROWAVE = ITEMS.register("raspberry",
+    public static final RegistryObject<BlockItem> MICROWAVE = ITEMS.register("microwave",
             () -> new BlockItem(BlockRegistry.MICROWAVE.get(), new Item.Properties()
-                    .tab(ItemGroup.TAB_BREWING)));
+                    .tab(ModItemGroup.HARVEST_THE_FRUIT_GROUP)));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
