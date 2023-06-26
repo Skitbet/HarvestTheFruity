@@ -1,17 +1,12 @@
-package com.skitbet.harvestthefruity.world;
+package com.skitbet.harvestthefruity.world.gen;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKeyCodec;
+import com.skitbet.harvestthefruity.world.ConfiguredFeatures;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 import java.util.List;
-import java.util.Set;
 import java.util.function.Supplier;
 
 public class RaspberryBushGeneration {

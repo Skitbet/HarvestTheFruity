@@ -29,6 +29,6 @@ public class HarvestTheFruity
 
     public void commonSetup(final FMLClientSetupEvent event) {
         RenderTypeLookup.setRenderLayer(BlockRegistry.RASPBERRY_BUSH.get(), RenderType.cutout());
-        RenderTypeLookup.setRenderLayer(BlockRegistry.MICROWAVE.get(), RenderType.cutout());
+//        RenderTypeLookup.setRenderLayer(BlockRegistry.APPLE_SAPLING.get(), RenderType.cutout());
     }
 }

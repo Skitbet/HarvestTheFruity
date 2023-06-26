@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "has_apples=true": {
+      "model": "harvestthefruity:block/apple_leaves"
+    },
+    "has_apples=false": {
+      "model": "harvestthefruity:block/apple_leaves_empty"
+    }
+  }
+}

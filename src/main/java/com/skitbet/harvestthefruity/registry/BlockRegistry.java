@@ -1,17 +1,12 @@
 package com.skitbet.harvestthefruity.registry;
 
 import com.skitbet.harvestthefruity.HarvestTheFruity;
-import com.skitbet.harvestthefruity.block.MicrowaveBlock;
+import com.skitbet.harvestthefruity.block.AppleLeaveBlock;
 import com.skitbet.harvestthefruity.block.RaspberryBushBlock;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
+import com.skitbet.harvestthefruity.world.tree.AppleTree;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Food;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,10 +18,13 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> RASPBERRY_BUSH = BLOCKS.register("raspberry_bush",
             () -> new RaspberryBushBlock(AbstractBlock.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.GRASS)));
-    public static final RegistryObject<Block> MICROWAVE = BLOCKS.register("microwave",
-            () -> new MicrowaveBlock(AbstractBlock.Properties.of(
-                    new Material.Builder(MaterialColor.COLOR_GRAY).nonSolid().build())
-                    .randomTicks().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> APPLE_LEAVES = BLOCKS.register("apple_leaves",
+            () -> new AppleLeaveBlock(AbstractBlock.Properties.copy(Blocks.OAK_LEAVES)));
+
+    public static final RegistryObject<Block> APPLE_SAPLING = BLOCKS.register("apple_tree_sapling",
+            () -> new SaplingBlock(new AppleTree(), AbstractBlock.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

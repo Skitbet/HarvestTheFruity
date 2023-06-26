@@ -26,10 +26,9 @@ public class ItemRegistry {
                                     .build())
                             .tab(ModItemGroup.HARVEST_THE_FRUIT_GROUP)));
 
-    public static final RegistryObject<BlockItem> MICROWAVE = ITEMS.register("microwave",
-            () -> new BlockItem(BlockRegistry.MICROWAVE.get(), new Item.Properties()
+    public static final RegistryObject<Item> APPLE_SAPLING = ITEMS.register("apple_tree_sapling",
+            () -> new BlockItem(BlockRegistry.APPLE_SAPLING.get(), new Item.Properties()
                     .tab(ModItemGroup.HARVEST_THE_FRUIT_GROUP)));
-
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
